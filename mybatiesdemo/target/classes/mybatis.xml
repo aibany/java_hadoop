@@ -6,6 +6,14 @@
 
     <properties resource="db.properties"></properties>
 
+    <typeAliases>
+        <typeAlias type="com.aibany.User" alias="User" />
+
+        <!-- 别名，整包扫描 -->
+        <package name="com.aibany" />
+
+    </typeAliases>
+
     <environments default="development">
         <environment id="development">
             <transactionManager type="JDBC" />
@@ -20,6 +28,11 @@
 
     <mappers>
         <mapper resource="mapper/UserMapper.xml" />
+        <mapper resource="mapper/UserMapperInterface.xml" />
+
+        <!-- 注册指定包下的所有mapper接口 -->
+        <package name="com.aibany.mapper" />
+
     </mappers>
 
 </configuration>

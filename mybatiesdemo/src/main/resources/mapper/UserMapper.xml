@@ -9,6 +9,15 @@
         limit 1
     </select>
 
+    <select id="findUserByUsername" parameterType="java.lang.String" resultType="com.aibany.User">
+	   select * from user where username like '%${value}%'
+	</select>
 
+    <insert id="insertUser" parameterType="com.aibany.User" keyProperty="id" useGeneratedKeys="true">
+        insert into user
+        (username,birthday,sex,address)
+        values
+        (#{username}, #{birthday}, #{sex}, #{address})
+    </insert>
 
 </mapper>
